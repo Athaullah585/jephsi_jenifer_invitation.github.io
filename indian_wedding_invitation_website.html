@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Invitation | Akila & Aakash</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- FontAwesome Icons for Wedding Details & Audio -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            maroon: {
+              DEFAULT: '#6B1123',
+              dark: '#480B17',
+              light: '#881B30'
+            },
+            cream: {
+              DEFAULT: '#FCF9F2',
+              soft: '#F5EFE1',
+              card: '#FDFBF7'
+            },
+            gold: {
+              DEFAULT: '#D4AF37',
+              light: '#F3E5AB',
+              dark: '#AA820A'
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'serif'],
+            script: ['"Great Vibes"', 'cursive'],
+            cinzel: ['"Cinzel Decorative"', 'serif'],
+            sans: ['"Montserrat"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Subtle paper texture pattern */
+    body {
+      background-color: #FCF9F2;
+      color: #382823;
+      background-image: radial-gradient(#d4af371f 1px, transparent 1px);
+      background-size: 28px 28px;
+      overflow-x: hidden;
+    }
+
+    /* Floating Petals Canvas */
+    #petals-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    /* Gold Metallic Gradients */
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #b8860b 0%, #ffd700 50%, #aa771c 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .gold-border {
+      border-color: #D4AF37;
+    }
+
+    /* Subtle Card Shimmer */
+    .invite-card {
+      box-shadow: 0 10px 30px -5px rgba(107, 17, 35, 0.08), 0 0 0 1px rgba(212, 175, 55, 0.25);
+    }
+
+    /* Audio button pulse */
+    @keyframes spin-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .spin-slow {
+      animation: spin-slow 12s linear infinite;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-gold/30">
+
+  <!-- Floating Falling Petals Animation Canvas -->
+  <canvas id="petals-canvas"></canvas>
+
+  <!-- Audio Toggle Floating Button -->
+  <div class="fixed bottom-6 right-6 z-50">
+    <button id="music-toggle" class="relative group flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-maroon text-gold border-2 border-gold shadow-xl hover:scale-110 transition-transform duration-300" title="Toggle Shehnai / Music">
+      <i id="music-icon" class="fa-solid fa-compact-disc text-xl md:text-2xl spin-slow"></i>
+      <span class="absolute right-16 bg-maroon/90 text-gold-light text-xs py-1 px-3 rounded shadow-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">Play Wedding Tune</span>
+    </button>
+  </div>
+
+  <!-- Background Instrumental Audio (Royalty-free Indian Shehnai/Flute audio sample) -->
+  <audio id="wedding-audio" loop preload="auto">
+    <source src="https://assets.mixkit.co/music/preview/mixkit-traditional-indian-meditation-136.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Top Auspicious Symbol & Hero Section -->
+  <header class="relative min-h-screen flex flex-col items-center justify-center text-center px-4 pt-10 pb-16">
+    <div class="max-w-3xl mx-auto space-y-6">
+      
+      <!-- Auspicious Icon / Ganesha Emblem (SVG) -->
+      <div class="w-16 h-16 md:w-20 md:h-20 mx-auto text-gold mb-2">
+        <svg viewBox="0 0 100 100" fill="currentColor" class="w-full h-full drop-shadow">
+          <!-- Stylized Ganesha / Kalash Monogram -->
+          <path d="M50 8 C40 8 32 15 32 25 C32 30 35 34 39 37 C34 40 30 46 30 53 C30 63 38 71 48 72 L48 88 C48 90 52 90 52 88 L52 72 C62 71 70 63 70 53 C70 46 66 40 61 37 C65 34 68 30 68 25 C68 15 60 8 50 8 Z M50 14 C56 14 62 19 62 25 C62 31 56 36 50 36 C44 36 38 31 38 25 C38 19 44 14 50 14 Z M50 42 C56 42 64 47 64 53 C64 60 58 66 50 66 C42 66 36 60 36 53 C36 47 44 42 50 42 Z"/>
+          <circle cx="50" cy="25" r="4" fill="#6B1123"/>
+          <path d="M46 51 C46 48 54 48 54 51 C54 56 46 56 46 61" stroke="#6B1123" stroke-width="2" fill="none"/>
+        </svg>
+      </div>
+
+      <p class="text-maroon font-serif text-lg md:text-xl tracking-widest uppercase">
+        Om Shri Ganeshaya Namaha
+      </p>
+
+      <div class="inline-block border-y border-gold/60 py-1 px-6">
+        <span class="text-xs uppercase tracking-[0.3em] text-maroon/80 font-semibold">Together with their families</span>
+      </div>
+
+      <!-- Couple Names -->
+      <div class="py-4">
+        <h1 class="font-script text-5xl sm:text-7xl md:text-8xl text-maroon drop-shadow-sm">
+          Akila <span class="font-serif text-3xl sm:text-5xl text-gold">&amp;</span> Aakash
+        </h1>
+        <p class="font-serif italic text-xl md:text-2xl text-maroon/90 mt-3">
+          Request the pleasure of your gracious company at their wedding celebration
+        </p>
+      </div>
+
+      <!-- Highlight Wedding Date -->
+      <div class="bg-cream-card invite-card border border-gold/40 rounded-2xl py-4 px-8 inline-block mx-auto">
+        <p class="text-xs uppercase tracking-widest text-maroon font-medium">Save The Date</p>
+        <p class="text-2xl sm:text-3xl font-cinzel text-maroon font-bold mt-1">December 15, 2026</p>
+        <p class="text-sm font-serif italic text-stone-600">Chennai, Tamil Nadu</p>
+      </div>
+
+      <!-- Countdown Component -->
+      <div class="pt-6">
+        <p class="text-xs uppercase tracking-[0.2em] text-maroon font-medium mb-3">Counting Down to the Big Day</p>
+        <div class="grid grid-cols-4 gap-2 sm:gap-4 max-w-sm sm:max-w-md mx-auto">
+          <div class="bg-white/80 rounded-xl p-2.5 sm:p-3 border border-gold/30 shadow-sm">
+            <span id="days" class="block text-2xl sm:text-3xl font-bold font-serif text-maroon">00</span>
+            <span class="text-[10px] sm:text-xs uppercase tracking-wider text-stone-600">Days</span>
+          </div>
+          <div class="bg-white/80 rounded-xl p-2.5 sm:p-3 border border-gold/30 shadow-sm">
+            <span id="hours" class="block text-2xl sm:text-3xl font-bold font-serif text-maroon">00</span>
+            <span class="text-[10px] sm:text-xs uppercase tracking-wider text-stone-600">Hours</span>
+          </div>
+          <div class="bg-white/80 rounded-xl p-2.5 sm:p-3 border border-gold/30 shadow-sm">
+            <span id="minutes" class="block text-2xl sm:text-3xl font-bold font-serif text-maroon">00</span>
+            <span class="text-[10px] sm:text-xs uppercase tracking-wider text-stone-600">Mins</span>
+          </div>
+          <div class="bg-white/80 rounded-xl p-2.5 sm:p-3 border border-gold/30 shadow-sm">
+            <span id="seconds" class="block text-2xl sm:text-3xl font-bold font-serif text-maroon">00</span>
+            <span class="text-[10px] sm:text-xs uppercase tracking-wider text-stone-600">Secs</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="pt-10">
+        <a href="#couple" class="inline-flex flex-col items-center text-maroon/60 hover:text-maroon transition-colors">
+          <span class="text-xs tracking-widest uppercase mb-1">Our Journey</span>
+          <i class="fa-solid fa-angle-down text-lg animate-bounce"></i>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Couple Story / Bios Section -->
+  <section id="couple" class="py-20 px-4 bg-cream-soft/60 relative">
+    <div class="max-w-5xl mx-auto text-center">
+      <span class="text-gold-dark text-xs uppercase tracking-[0.25em] font-semibold">Two Souls, One Heart</span>
+      <h2 class="font-serif text-4xl sm:text-5xl text-maroon mt-1 mb-12">The Bride & The Groom</h2>
+
+      <div class="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <!-- Bride Card -->
+        <div class="invite-card bg-cream-card rounded-3xl p-6 sm:p-8 border border-gold/40 text-center relative group">
+          <div class="w-36 h-36 sm:w-44 sm:h-44 mx-auto rounded-full p-1.5 border-2 border-gold mb-5 overflow-hidden shadow-md">
+            <img 
+              src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=80" 
+              alt="Akila - The Bride" 
+              class="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform duration-500"
+              onerror="this.src='https://placehold.co/400x400/6B1123/D4AF37?text=Bride'"
+            />
+          </div>
+          <h3 class="font-serif text-3xl text-maroon font-bold">Akila</h3>
+          <p class="text-gold-dark font-script text-2xl mb-3">The Bride</p>
+          <p class="text-stone-600 text-sm leading-relaxed font-serif text-base">
+            Daughter of Mr. & Mrs. S. Ramanathan.<br/>
+            An architect with a passion for classical music and travel. "Ready to start the biggest adventure of my life with my best friend."
+          </p>
+        </div>
+
+        <!-- Groom Card -->
+        <div class="invite-card bg-cream-card rounded-3xl p-6 sm:p-8 border border-gold/40 text-center relative group">
+          <div class="w-36 h-36 sm:w-44 sm:h-44 mx-auto rounded-full p-1.5 border-2 border-gold mb-5 overflow-hidden shadow-md">
+            <img 
+              src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=600&q=80" 
+              alt="Aakash - The Groom" 
+              class="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform duration-500"
+              onerror="this.src='https://placehold.co/400x400/6B1123/D4AF37?text=Groom'"
+            />
+          </div>
+          <h3 class="font-serif text-3xl text-maroon font-bold">Aakash</h3>
+          <p class="text-gold-dark font-script text-2xl mb-3">The Groom</p>
+          <p class="text-stone-600 text-sm leading-relaxed font-serif text-base">
+            Son of Mr. & Mrs. K. Sundar.<br/>
+            Software engineer, coffee lover, and avid trekker. "From our very first conversation, I knew she was the one."
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events & Itinerary Section -->
+  <section id="events" class="py-20 px-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-gold-dark text-xs uppercase tracking-[0.25em] font-semibold">Celebrate With Us</span>
+        <h2 class="font-serif text-4xl sm:text-5xl text-maroon mt-1">Wedding Ceremonies</h2>
+        <div class="w-24 h-0.5 bg-gold mx-auto mt-4"></div>
+      </div>
+
+      <div class="space-y-8">
+        <!-- Event 1: Sangeet / Mehendi -->
+        <div class="invite-card bg-cream-card rounded-2xl p-6 sm:p-8 border border-gold/30 hover:border-gold transition-colors flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-5 w-full md:w-auto">
+            <div class="w-14 h-14 rounded-full bg-maroon/10 border border-gold/40 flex items-center justify-center text-maroon text-2xl shrink-0">
+              <i class="fa-solid fa-guitar"></i>
+            </div>
+            <div>
+              <span class="text-xs uppercase tracking-widest font-semibold text-gold-dark">Music &amp; Dance</span>
+              <h3 class="font-serif text-2xl sm:text-3xl font-bold text-maroon">Sangeet &amp; Mehendi</h3>
+              <p class="text-stone-600 text-sm mt-1">
+                <i class="fa-regular fa-clock text-gold-dark mr-1"></i> Dec 14, 2026 • 6:30 PM Onwards
+              </p>
+              <p class="text-stone-500 text-xs mt-0.5">
+                <i class="fa-solid fa-location-dot text-gold-dark mr-1"></i> The Grand Ballroom, Leela Palace, Chennai
+              </p>
+            </div>
+          </div>
+          <div class="flex gap-3 w-full md:w-auto justify-end">
+            <button onclick="addToCalendar('Sangeet & Mehendi - Akila & Aakash', 'The Grand Ballroom, Leela Palace, Chennai', '2026-12-14T18:30:00', '2026-12-14T22:30:00')" class="px-4 py-2 text-xs font-semibold uppercase tracking-wider rounded-lg border border-maroon text-maroon hover:bg-maroon hover:text-white transition-colors">
+              <i class="fa-regular fa-calendar-plus mr-1"></i> Calendar
+            </button>
+            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="px-4 py-2 text-xs font-semibold uppercase tracking-wider rounded-lg bg-maroon text-white hover:bg-maroon-light transition-colors">
+              <i class="fa-solid fa-map-pin mr-1"></i> Venue
+            </a>
+          </div>
+        </div>
+
+        <!-- Event 2: Muhurtham (Main Wedding) -->
+        <div class="invite-card bg-gradient-to-r from-cream-card via-white to-cream-card rounded-2xl p-6 sm:p-8 border-2 border-gold shadow-lg flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+          <div class="absolute top-0 right-0 bg-gold text-maroon text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-bl-lg">
+            Auspicious Muhurtham
+          </div>
+          <div class="flex items-center gap-5 w-full md:w-auto">
+            <div class="w-14 h-14 rounded-full bg-maroon text-gold flex items-center justify-center text-2xl shrink-0 shadow">
+              <i class="fa-solid fa-ring"></i>
+            </div>
+            <div>
+              <span class="text-xs uppercase tracking-widest font-semibold text-gold-dark">Holy Matrimony</span>
+              <h3 class="font-serif text-2xl sm:text-3xl font-bold text-maroon">Wedding Ceremony</h3>
+              <p class="text-stone-700 font-medium text-sm mt-1">
+                <i class="fa-regular fa-clock text-maroon mr-1"></i> Dec 15, 2026 • 9:00 AM – 10:30 AM
+              </p>
+              <p class="text-stone-500 text-xs mt-0.5">
+                <i class="fa-solid fa-location-dot text-maroon mr-1"></i> Mayor Ramanathan Chettiar Hall (MRC), MRC Nagar, Chennai
+              </p>
+            </div>
+          </div>
+          <div class="flex gap-3 w-full md:w-auto justify-end">
+            <button onclick="addToCalendar('Wedding Ceremony (Muhurtham) - Akila & Aakash', 'MRC Hall, Chennai', '2026-12-15T09:00:00', '2026-12-15T11:00:00')" class="px-4 py-2 text-xs font-semibold uppercase tracking-wider rounded-lg border border-maroon text-maroon hover:bg-maroon hover:text-white transition-colors">
+              <i class="fa-regular fa-calendar-plus mr-1"></i> Calendar
+            </button>
+            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="px-4 py-2 text-xs font-semibold uppercase tracking-wider rounded-lg bg-maroon text-white hover:bg-maroon-light transition-colors">
+              <i class="fa-solid fa-map-pin mr-1"></i> Venue
+            </a>
+          </div>
+        </div>
+
+        <!-- Event 3: Reception -->
+        <div class="invite-card bg-cream-card rounded-2xl p-6 sm:p-8 border border-gold/30 hover:border-gold transition-colors flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-5 w-full md:w-auto">
+            <div class="w-14 h-14 rounded-full bg-maroon/10 border border-gold/40 flex items-center justify-center text-maroon text-2xl shrink-0">
+              <i class="fa-solid fa-champagne-glasses"></i>
+            </div>
+            <div>
+              <span class="text-xs uppercase tracking-widest font-semibold text-gold-dark">Dinner &amp; Greetings</span>
+              <h3 class="font-serif text-2xl sm:text-3xl font-bold text-maroon">Wedding Reception</h3>
+              <p class="text-stone-600 text-sm mt-1">
+                <i class="fa-regular fa-clock text-gold-dark mr-1"></i> Dec 15, 2026 • 7:00 PM Onwards
+              </p>
+              <p class="text-stone-500 text-xs mt-0.5">
+                <i class="fa-solid fa-location-dot text-gold-dark mr-1"></i> MRC Hall Grand Lawns, MRC Nagar, Chennai
+              </p>
+            </div>
+          </div>
+          <div class="flex gap-3 w-full md:w-auto justify-end">
+            <button onclick="addToCalendar('Wedding Reception - Akila & Aakash', 'MRC Hall Grand Lawns, Chennai', '2026-12-15T19:00:00', '2026-12-15T23:00:00')" class="px-4 py-2 text-xs font-semibold uppercase tracking-wider rounded-lg border border-maroon text-maroon hover:bg-maroon hover:text-white transition-colors">
+              <i class="fa-regular fa-calendar-plus mr-1"></i> Calendar
+            </button>
+            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="px-4 py-2 text-xs font-semibold uppercase tracking-wider rounded-lg bg-maroon text-white hover:bg-maroon-light transition-colors">
+              <i class="fa-solid fa-map-pin mr-1"></i> Venue
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Venue & Directions Section -->
+  <section id="venue" class="py-20 px-4 bg-cream-soft/60">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="text-gold-dark text-xs uppercase tracking-[0.25em] font-semibold">Location &amp; Guide</span>
+        <h2 class="font-serif text-4xl sm:text-5xl text-maroon mt-1">The Venue</h2>
+        <p class="font-serif italic text-stone-600 text-lg mt-2">MRC Nagar, Raja Annamalai Puram, Chennai, Tamil Nadu 600028</p>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-8 items-center">
+        <!-- Venue Card Details -->
+        <div class="invite-card bg-cream-card rounded-2xl p-6 sm:p-8 border border-gold/40 space-y-4">
+          <div class="text-maroon text-3xl">
+            <i class="fa-solid fa-monument"></i>
+          </div>
+          <h3 class="font-serif text-2xl font-bold text-maroon">Mayor Ramanathan Chettiar Hall</h3>
+          <p class="text-stone-600 text-sm leading-relaxed">
+            Spacious air-conditioned hall with ample valet parking, situated conveniently along the scenic coast of MRC Nagar.
+          </p>
+          <div class="pt-2 border-t border-gold/20 space-y-2 text-xs text-stone-500">
+            <p><i class="fa-solid fa-car text-gold-dark w-5"></i> Valet Parking Available</p>
+            <p><i class="fa-solid fa-plane text-gold-dark w-5"></i> 15 km from Chennai Airport (MAA)</p>
+            <p><i class="fa-solid fa-train text-gold-dark w-5"></i> 8 km from Chennai Central Railway</p>
+          </div>
+          <a href="https://maps.google.com/?q=Mayor+Ramanathan+Chettiar+Hall+Chennai" target="_blank" rel="noopener noreferrer" class="inline-block w-full text-center py-2.5 px-4 rounded-xl bg-gold text-maroon font-bold text-xs uppercase tracking-wider hover:bg-gold-light transition-colors shadow">
+            <i class="fa-solid fa-diamond-turn-right mr-1.5"></i> Open in Google Maps
+          </a>
+        </div>
+
+        <!-- Interactive Google Maps Frame / Embed Placeholder -->
+        <div class="lg:col-span-2 rounded-2xl overflow-hidden border border-gold/40 shadow-md h-72 sm:h-96">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.974864115334!2d80.27431267597148!3d13.013110014144365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267dcb782803b%3A0x7d6f5df55bc6f827!2sMayor%20Ramanathan%20Chettiar%20Hall!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive RSVP Section -->
+  <section id="rsvp" class="py-20 px-4">
+    <div class="max-w-2xl mx-auto text-center">
+      <span class="text-gold-dark text-xs uppercase tracking-[0.25em] font-semibold">Your Presence Means The World</span>
+      <h2 class="font-serif text-4xl sm:text-5xl text-maroon mt-1 mb-3">RSVP</h2>
+      <p class="font-serif italic text-stone-600 text-lg mb-8">Kindly respond by November 30, 2026 to help us prepare your welcome.</p>
+
+      <div class="invite-card bg-cream-card rounded-3xl p-6 sm:p-10 border border-gold/40 text-left">
+        <form id="rsvp-form" class="space-y-5" onsubmit="handleRSVP(event)">
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-maroon font-semibold mb-1">Your Full Name</label>
+            <input 
+              type="text" 
+              id="guest-name" 
+              required 
+              placeholder="e.g. Anand & Family" 
+              class="w-full px-4 py-3 rounded-xl border border-gold/40 focus:border-maroon focus:ring-1 focus:ring-maroon bg-white text-stone-800 text-sm outline-none transition-all"
+            />
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-maroon font-semibold mb-1">Will You Attend?</label>
+              <select id="attendance" class="w-full px-4 py-3 rounded-xl border border-gold/40 focus:border-maroon focus:ring-1 focus:ring-maroon bg-white text-stone-800 text-sm outline-none transition-all">
+                <option value="Yes, Joyfully Attending">Joyfully Attending</option>
+                <option value="Regretfully Cannot Attend">Regretfully Decline</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-maroon font-semibold mb-1">Total Guests</label>
+              <input 
+                type="number" 
+                id="guest-count" 
+                min="1" 
+                max="10" 
+                value="2" 
+                class="w-full px-4 py-3 rounded-xl border border-gold/40 focus:border-maroon focus:ring-1 focus:ring-maroon bg-white text-stone-800 text-sm outline-none transition-all"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-maroon font-semibold mb-1">Wishes &amp; Blessings</label>
+            <textarea 
+              id="guest-message" 
+              rows="3" 
+              placeholder="Leave a sweet blessing for the couple..." 
+              class="w-full px-4 py-3 rounded-xl border border-gold/40 focus:border-maroon focus:ring-1 focus:ring-maroon bg-white text-stone-800 text-sm outline-none transition-all"
+            ></textarea>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-3 pt-2">
+            <button 
+              type="submit" 
+              class="flex-1 py-3 px-6 rounded-xl bg-maroon text-white font-medium text-xs uppercase tracking-widest hover:bg-maroon-dark transition-colors shadow flex items-center justify-center gap-2">
+              <i class="fa-regular fa-paper-plane"></i> Confirm RSVP
+            </button>
+            <button 
+              type="button" 
+              onclick="sendWhatsAppRSVP()"
+              class="flex-1 py-3 px-6 rounded-xl bg-emerald-700 text-white font-medium text-xs uppercase tracking-widest hover:bg-emerald-800 transition-colors shadow flex items-center justify-center gap-2">
+              <i class="fa-brands fa-whatsapp text-base"></i> RSVP via WhatsApp
+            </button>
+          </div>
+        </form>
+
+        <!-- Inline feedback message -->
+        <div id="rsvp-status" class="hidden mt-6 p-4 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-800 text-center text-sm font-serif">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="py-12 px-4 text-center border-t border-gold/30 bg-cream">
+    <div class="max-w-md mx-auto space-y-3">
+      <p class="font-script text-4xl text-maroon">Akila &amp; Aakash</p>
+      <p class="text-xs uppercase tracking-widest text-gold-dark font-semibold">#AkilaGotAakash • #AkiAakForever</p>
+      <p class="text-xs text-stone-500 font-serif">With blessings from parents, grandparents, and loved ones.</p>
+      <p class="text-[10px] text-stone-400 pt-4">Designed with love for our wedding guests</p>
+    </div>
+  </footer>
+
+  <!-- Script for Animations, Audio, Countdown, Calendar & RSVP -->
+  <script>
+    /* ============================================================
+       1. WEDDING DATE & COUNTDOWN TIMER CONFIGURATION
+       ============================================================ */
+    // Change this target date to your actual wedding date!
+    const weddingDate = new Date("December 15, 2026 09:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const difference = weddingDate - now;
+
+      if (difference <= 0) {
+        document.getElementById("days").innerText = "00";
+        document.getElementById("hours").innerText = "00";
+        document.getElementById("minutes").innerText = "00";
+        document.getElementById("seconds").innerText = "00";
+        return;
+      }
+
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerText = String(days).padStart(2, '0');
+      document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+      document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+      document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    /* ============================================================
+       2. FLOATING PETALS CANVAS ANIMATION
+       ============================================================ */
+    const canvas = document.getElementById('petals-canvas');
+    const ctx = canvas.getContext('2d');
+    let petals = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class Petal {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = -20;
+        this.size = Math.random() * 8 + 8;
+        this.speedY = Math.random() * 1.2 + 0.6;
+        this.speedX = Math.random() * 1.5 - 0.75;
+        this.rotation = Math.random() * 360;
+        this.rotationSpeed = Math.random() * 1.5 - 0.75;
+        this.opacity = Math.random() * 0.5 + 0.3;
+        // Warm gold & rose petal palette
+        const colors = ['rgba(212, 175, 55, ', 'rgba(235, 140, 150, ', 'rgba(180, 40, 60, '];
+        this.colorPrefix = colors[Math.floor(Math.random() * colors.length)];
+      }
+      update() {
+        this.y += this.speedY;
+        this.x += Math.sin(this.y / 30) * 0.8 + this.speedX;
+        this.rotation += this.rotationSpeed;
+        if (this.y > canvas.height + 20) {
+          this.reset();
+        }
+      }
+      draw() {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate((this.rotation * Math.PI) / 180);
+        ctx.beginPath();
+        // Draw petal curve
+        ctx.ellipse(0, 0, this.size / 2, this.size, 0, 0, Math.PI * 2);
+        ctx.fillStyle = this.colorPrefix + this.opacity + ')';
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    // Initialize 24 subtle petals
+    const petalCount = window.innerWidth < 640 ? 15 : 28;
+    for (let i = 0; i < petalCount; i++) {
+      const p = new Petal();
+      p.y = Math.random() * canvas.height;
+      petals.push(p);
+    }
+
+    function animatePetals() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let petal of petals) {
+        petal.update();
+        petal.draw();
+      }
+      requestAnimationFrame(animatePetals);
+    }
+    animatePetals();
+
+    /* ============================================================
+       3. BACKGROUND MUSIC AUDIO TOGGLE
+       ============================================================ */
+    const musicBtn = document.getElementById('music-toggle');
+    const musicIcon = document.getElementById('music-icon');
+    const audio = document.getElementById('wedding-audio');
+    let isPlaying = false;
+
+    musicBtn.addEventListener('click', () => {
+      if (isPlaying) {
+        audio.pause();
+        musicIcon.classList.remove('spin-slow');
+        musicIcon.classList.replace('fa-pause', 'fa-compact-disc');
+        isPlaying = false;
+      } else {
+        audio.play().then(() => {
+          musicIcon.classList.add('spin-slow');
+          musicIcon.classList.replace('fa-compact-disc', 'fa-pause');
+          isPlaying = true;
+        }).catch((e) => {
+          console.log("Audio play prevented:", e);
+        });
+      }
+    });
+
+    /* Auto-start music attempt on first user gesture */
+    const startAudioOnFirstClick = () => {
+      if (!isPlaying) {
+        audio.play().then(() => {
+          musicIcon.classList.add('spin-slow');
+          musicIcon.classList.replace('fa-compact-disc', 'fa-pause');
+          isPlaying = true;
+        }).catch(() => {});
+      }
+      document.removeEventListener('click', startAudioOnFirstClick);
+    };
+    document.addEventListener('click', startAudioOnFirstClick, { once: true });
+
+    /* ============================================================
+       4. ADD TO GOOGLE CALENDAR HELPER
+       ============================================================ */
+    function addToCalendar(title, location, startIso, endIso) {
+      const formatTime = (iso) => iso.replace(/-|:|\.\d\d\d/g, "");
+      const start = formatTime(startIso) + "Z";
+      const end = formatTime(endIso) + "Z";
+      const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${start}/${end}&details=${encodeURIComponent('We look forward to celebrating with you!')}&location=${encodeURIComponent(location)}`;
+      window.open(url, '_blank');
+    }
+
+    /* ============================================================
+       5. INTERACTIVE RSVP HANDLERS (WEB & WHATSAPP)
+       ============================================================ */
+    function handleRSVP(event) {
+      event.preventDefault();
+      const name = document.getElementById('guest-name').value;
+      const status = document.getElementById('attendance').value;
+      const guests = document.getElementById('guest-count').value;
+      
+      const statusDiv = document.getElementById('rsvp-status');
+      statusDiv.innerHTML = `<strong>Thank you, ${name}!</strong><br>Your response (<em>${status}</em> for ${guests} guests) has been recorded with warmth.`;
+      statusDiv.classList.remove('hidden');
+
+      // Scroll status smoothly into view
+      statusDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function sendWhatsAppRSVP() {
+      const name = document.getElementById('guest-name').value || "Guest";
+      const status = document.getElementById('attendance').value;
+      const guests = document.getElementById('guest-count').value || "1";
+      const message = document.getElementById('guest-message').value || "Best wishes!";
+
+      // Replace with your real 10-digit WhatsApp phone number with country code (e.g. 919876543210 for India)
+      const phoneNumber = "919876543210"; 
+
+      const text = `*Wedding RSVP for Akila & Aakash*%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Status:* ${encodeURIComponent(status)}%0A*Guests:* ${encodeURIComponent(guests)}%0A*Wishes:* ${encodeURIComponent(message)}`;
+      const waUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${text}`;
+      window.open(waUrl, '_blank');
+    }
+  </script>
+</body>
+</html>
